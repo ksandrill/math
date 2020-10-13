@@ -1,6 +1,6 @@
 from typing import List
 
-from func import get_function
+from func import get_func_value
 
 
 def get_diff(nodes: List[float], nodes_values: List[float]) -> List[List[float]]:
@@ -29,7 +29,7 @@ def get_polynomial(x: float, diffs: List[List[float]], nodes: List[float]) -> (f
     return answer, accuracy
 
 
-def get_accuracy(x: float, diffs: List[List[float]], nodes: List[float], w_n: float):
+def get_accuracy(x: float, diffs: List[List[float]], nodes: List[float], w_n: float) -> float:
     acc_diffs: List[List[float]] = list(diffs)
     add_node(x, acc_diffs, nodes)
     nodes.pop()
@@ -39,7 +39,7 @@ def get_accuracy(x: float, diffs: List[List[float]], nodes: List[float], w_n: fl
 
 
 def add_node(x: float, diffs: List[List[float]], nodes: List[float]):
-    diffs[0].append(get_function(x))
+    diffs[0].append(get_func_value(x))
     rows = len(diffs)
     for i in range(1, rows):
         j = len(diffs[i - 1]) - 1
