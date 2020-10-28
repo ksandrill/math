@@ -29,10 +29,9 @@ def main():
             file.write("    \tn: " + str(n))
             file.write("    \th: " + str(n) + "\n")
             file.write("    \tx: " + str(x) + "\n")
-            file.write(("   \tanswer: " + str(fixed_precision(answer, 2)) + "\n"))
-            file.write("    \taccuracy: " + fixed_precision(accuracy, 2) + "\n")
+            file.write(("   \tanswer: " + "\t" + str(fixed_precision(answer, 2)) + "\n"))
+            file.write("    \taccuracy: " + "\t" + fixed_precision(accuracy, 2) + "\n")
 
 
 if __name__ == "__main__":
     main()
-
