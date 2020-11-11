@@ -2,6 +2,7 @@ import math
 from typing import List
 
 
+
 def fixed_precision(number: float, digits: int) -> str:
     return f"{number:.{digits}f}"
 
