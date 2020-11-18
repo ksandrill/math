@@ -79,14 +79,15 @@ def main():
         return -1
     r: float = a * t / h
     print("r: ", r)
-
-    print("r should be < 1")
+    if r > 1:
+        print("r should be < 1")
+        return -1
 
     print("r = ", r)
     evaluate(u_list, r, N, T)
     real_u = get_real_u(N, T, x0, y0, h, t, a)
-    print("real:")
-    print_2d_list(real_u, N, T)
+    #print("real:")
+    #print_2d_list(real_u, N, T)
     # print("not real:")
     # print_2d_list(u_list, N, T)
     x_list = [x0 + i * h for i in range(N)]
@@ -98,9 +99,7 @@ def main():
         frames.append([line, line1])
     animation = ArtistAnimation(fig, frames, interval=2000, blit=False, repeat=True)
     plt.show()
-    animation.save('try.gif',
-                  writer='Pillow',
-                  fps=2)
+    # animation.save('try.gif',writer='Pillow',fps=2)
 
 
 if __name__ == "__main__":
