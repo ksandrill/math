@@ -3,12 +3,14 @@ from typing import List
 
 
 def get_g_value(x: float) -> float:
-    return math.exp(x)
+    return math.sin(x)
 
 
 def get_real_y_value(x: float) -> float:
-    return math.exp(x)
+    return 2 - math.cos(x)
 
+
+# 2 - math.cos(x) for y(0) = 1 and g = sin_x
 
 def get_ap4_sol(x0: float, y0: float, h: float, n: int, x_list: List[float]) -> List[float]:
     g_list: List[float] = [0] * n
@@ -16,7 +18,7 @@ def get_ap4_sol(x0: float, y0: float, h: float, n: int, x_list: List[float]) -> 
     g_list[0] = get_g_value(x0)
     y_list[0] = y0
     g_list[1] = get_g_value(x_list[1])
-    y_list[1] = g_list[0] * h + y_list[0]
+    y_list[1] = (g_list[0] + g_list[1] + get_g_value(h)) * h / 3 + y_list[0]
     for i in range(2, n):
         g_list[i] = get_g_value(x_list[i])
     for i in range(1, n - 1):

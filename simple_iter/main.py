@@ -16,8 +16,10 @@ def main():
         if x_start <= 0 or x_start > math.pi / 2:
             print("wrong x_start")
             return
-        print(get_root(x_start, eps, get_function(l, h)))
-        print(get_root(-x_start, eps, get_function(l, h)))
+        root = get_root(x_start, eps, get_function(l, h))
+        print(root)
+        print(-root)
+
     print("root: 0")
 
 
